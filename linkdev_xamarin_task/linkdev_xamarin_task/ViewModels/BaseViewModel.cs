@@ -1,5 +1,4 @@
-﻿using linkdev_xamarin_task.Models;
-using linkdev_xamarin_task.Services;
+﻿using linkdev_xamarin_task.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,27 @@ namespace linkdev_xamarin_task.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public BaseViewModel()
+        {
+            MessagingCenter.Subscribe<BaseView, Views.Size>(this, "sizeChanged", _sizeChanged);
+        }
+
+        private void _sizeChanged(BaseView arg1, Views.Size arg2)
+        {
+            if (arg2 != null)
+            {
+               // Size = arg2;
+                ImageSize = arg2.Height /2.5;
+            }
+        }
+
+        //represents device size (height, width)
+        double _imageSize;
+        public double ImageSize
+        {
+            get { return _imageSize; }
+            set { SetProperty(ref _imageSize, value); }
+        }
 
         bool isBusy = false;
         public bool IsBusy
@@ -19,13 +38,7 @@ namespace linkdev_xamarin_task.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
-        }
-
+     
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -50,5 +63,46 @@ namespace linkdev_xamarin_task.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        #region network connection
+
+        private bool _connected = true;
+        public bool Connected
+        {
+            get => _connected;
+            set
+            {
+                SetProperty(ref _connected, value);
+            }
+        } 
+        #endregion
+        
+        #region Empty Data Visability connection
+
+        private bool _hasData = false;
+        public bool HasData
+        {
+            get => _hasData;
+            set
+            {
+                SetProperty(ref _hasData, value);
+            }
+        }
+        #endregion
+
+
+        #region visibility of main content if Connected and hasData
+
+        private bool _ShowMainUI;
+        public bool ShowMainUI
+        {
+            get => Connected && !HasData;
+            set
+            {
+                SetProperty(ref _ShowMainUI, value);
+            }
+        }
+        #endregion
+
     }
 }

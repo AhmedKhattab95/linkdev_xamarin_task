@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:linkdev_xamarin_task.Resources"
+             x:Class="linkdev_xamarin_task.Controls.EmptyView">
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="Center" 
+                     VerticalOptions="Center"
+                     Spacing="9">
+
+            <Image HeightRequest="70"
+                   WidthRequest="70"
+                   Source="empty.png" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"/>
+            <Label Text="{x:Static res:AppResources.NoData}"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"
+                   FontSize="Medium"
+                   TextColor="{StaticResource Primary}"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

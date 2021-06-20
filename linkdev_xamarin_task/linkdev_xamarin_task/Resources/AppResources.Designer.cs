@@ -59,5 +59,140 @@ namespace linkdev_xamarin_task.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Article Details.
+        /// </summary>
+        internal static string articleDetails {
+            get {
+                return ResourceManager.GetString("articleDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Articles.
+        /// </summary>
+        internal static string articles {
+            get {
+                return ResourceManager.GetString("articles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explore Online News.
+        /// </summary>
+        internal static string exploreOnlineNews {
+            get {
+                return ResourceManager.GetString("exploreOnlineNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gallery.
+        /// </summary>
+        internal static string gallery {
+            get {
+                return ResourceManager.GetString("gallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live Chat.
+        /// </summary>
+        internal static string liveChat {
+            get {
+                return ResourceManager.GetString("liveChat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Data.
+        /// </summary>
+        internal static string NoData {
+            get {
+                return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no items avilable to be displayed.
+        /// </summary>
+        internal static string noItemsAvilable {
+            get {
+                return ResourceManager.GetString("noItemsAvilable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ooops ....
+        /// </summary>
+        internal static string ooops {
+            get {
+                return ResourceManager.GetString("ooops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Website.
+        /// </summary>
+        internal static string openWebsite {
+            get {
+                return ResourceManager.GetString("openWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, service is not avilable.
+        /// </summary>
+        internal static string serviceNotAvilable {
+            get {
+                return ResourceManager.GetString("serviceNotAvilable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to slow or no interenet connection!.
+        /// </summary>
+        internal static string slowOrNoInternetConnection {
+            get {
+                return ResourceManager.GetString("slowOrNoInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string String2 {
+            get {
+                return ResourceManager.GetString("String2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        internal static string welcome {
+            get {
+                return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wish List.
+        /// </summary>
+        internal static string wishList {
+            get {
+                return ResourceManager.GetString("wishList", resourceCulture);
+            }
+        }
     }
 }

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:linkdev_xamarin_task.Resources"
+             x:Class="linkdev_xamarin_task.Controls.NoConnectionView">
+  <ContentView.Content>
+        <StackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center"  >
+            <Image Source="satellite.png"   VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="300"/>
+            <StackLayout  Spacing="5" VerticalOptions="Center" HorizontalOptions="Center" >
+                <Label Text="{x:Static res:AppResources.ooops}"  FontSize="32" FontAttributes="Bold"  TextColor="#116EB7"  HorizontalOptions="Center"  />
+                <Label Text="{x:Static res:AppResources.slowOrNoInternetConnection}" FontSize="18" LineBreakMode="WordWrap" TextColor="#272727"   HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

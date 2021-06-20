@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BaseView  xmlns:views="clr-namespace:linkdev_xamarin_task.Views" 
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="linkdev_xamarin_task.Views.BlankPage"
+                 xmlns:vm="clr-namespace:linkdev_xamarin_task.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <vm:BlankPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label x:Name="errorMsgLabel"
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="CenterAndExpand" 
+               Style="{StaticResource BoldLargeLabelStyle}" 
+               FontAttributes="Bold" 
+               FontSize="24"/>
+    </StackLayout>
+
+</views:BaseView>

@@ -7,7 +7,12 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Primary">Black</Color>
+            <Color x:Key="Secondary">White</Color>
+            <Color x:Key="LightGray">#DDDDDD</Color>
+            <Color x:Key="Gray">Gray</Color>
+            <LineBreakMode x:Key="DescLineBreakMode">WordWrap</LineBreakMode>
+            
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -27,6 +32,32 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-        </ResourceDictionary>        
+
+            <Style x:Key="BoldLargeLabelStyle"
+               TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <Style x:Key="NormalLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            
+            <Style x:Key="NormalGreyLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Gray}" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            
+            <Style x:Key="NormalLightLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Secondary}" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            
+            <Style x:Key="SmallLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Gray}" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

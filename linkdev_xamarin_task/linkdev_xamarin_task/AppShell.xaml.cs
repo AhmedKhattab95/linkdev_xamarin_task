@@ -1,7 +1,7 @@
-﻿using linkdev_xamarin_task.ViewModels;
+﻿using linkdev_xamarin_task.Controls;
+using linkdev_xamarin_task.Resources;
 using linkdev_xamarin_task.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace linkdev_xamarin_task
@@ -12,12 +12,15 @@ namespace linkdev_xamarin_task
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            _addContentPages();
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private void _addContentPages()
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            Items.Add( new ShellContent() { Content = new BlankPage(AppResources.liveChat, AppResources.serviceNotAvilable), Title = AppResources.liveChat , Icon = "live.png" });
+            Items.Add( new ShellContent() { Content = new BlankPage(AppResources.gallery, AppResources.noItemsAvilable), Title = AppResources.gallery, Icon = "gallery.png" });
+            Items.Add( new ShellContent() { Content = new BlankPage(AppResources.wishList, AppResources.serviceNotAvilable), Title = AppResources.wishList, Icon = "wishlist.png" });
+            Items.Add( new ShellContent() { Content = new BlankPage(AppResources.exploreOnlineNews, AppResources.noItemsAvilable), Title = AppResources.exploreOnlineNews, Icon = "onlineNews.png" });
         }
     }
 }

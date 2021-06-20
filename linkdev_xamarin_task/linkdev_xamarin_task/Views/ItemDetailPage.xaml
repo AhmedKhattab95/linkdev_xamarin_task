@@ -1,14 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="linkdev_xamarin_task.Views.ItemDetailPage"
-             Title="{Binding Title}">
+<views:BaseView xmlns:views="clr-namespace:linkdev_xamarin_task.Views" 
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="linkdev_xamarin_task.Views.ItemDetailPage"
+                xmlns:res="clr-namespace:linkdev_xamarin_task.Resources" 
+                xmlns:viewmodels="clr-namespace:linkdev_xamarin_task.ViewModels" xmlns:converters="clr-namespace:linkdev_xamarin_task.Converters"
+                x:DataType="viewmodels:ItemDetailViewModel"
+                Title="{x:Static res:AppResources.articleDetails}"
+                BackgroundColor="{StaticResource LightGray}">
+    <views:BaseView.Resources>
+        <ResourceDictionary>
+            <converters:DoublesizeConverter x:Key="DoublesizeConverter"/>
+        </ResourceDictionary>
+    </views:BaseView.Resources>
+    <ScrollView
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Start">
+        <StackLayout Margin="16" 
+                     Spacing="16"
+                     BackgroundColor="{StaticResource Secondary}"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Start">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Source="{Binding article.urlToImage}" 
+                       HeightRequest="{Binding ImageSize, Converter={StaticResource DoublesizeConverter}}"
+                       Grid.RowSpan="2"
+                       Aspect="AspectFill"/>
+                <Label Text="{Binding article.publishedAt, StringFormat='{0:MMMM dd, yyyy}'}" 
+                                   Grid.Row="1"
+                       Margin="10,0,10,10"
+                       HorizontalOptions="EndAndExpand"
+                                   Style="{DynamicResource NormalLightLabelStyle}" />
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
-    </StackLayout>
-    
-</ContentPage>
+            </Grid>
+            <StackLayout Margin="9,0" >
+                <Label Text="{Binding article.title}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource NormalLabelStyle}" 
+                            FontSize="16" />
+
+                <Label Style="{DynamicResource NormalGreyLabelStyle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="By "/>
+                            <Span Text="{Binding article.author}" Style="{DynamicResource BodyStyle}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding article.description}" 
+                            LineBreakMode="{StaticResource DescLineBreakMode}" 
+                            Style="{DynamicResource NormalGreyLabelStyle}" 
+                            FontSize="16" />
+            </StackLayout>
+
+            <Button Text="{x:Static res:AppResources.openWebsite}"
+                    Command="{Binding OpenWebCommand}"
+                    HeightRequest="50"/>
+        </StackLayout>
+    </ScrollView>
+</views:BaseView>

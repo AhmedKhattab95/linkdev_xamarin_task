@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:BaseView  xmlns:views="clr-namespace:linkdev_xamarin_task.Views"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="linkdev_xamarin_task.Views.ArticlesPageView"
+                 xmlns:local="clr-namespace:linkdev_xamarin_task.ViewModels"  
+                 xmlns:model="clr-namespace:linkdev_xamarin_task.Models"
+                 xmlns:converters="clr-namespace:linkdev_xamarin_task.Converters"
+                 xmlns:controls="clr-namespace:linkdev_xamarin_task.Controls"
+                 x:Name="ArticlesPageViewModel"
+                 xmlns:res="clr-namespace:linkdev_xamarin_task.Resources"
+                 Title="{x:Static res:AppResources.articles}">
+
+    <views:BaseView.Resources>
+        <ResourceDictionary>
+            <converters:BoolToInversedBoolConverter x:Key="BoolToInversedBoolConverter"/>
+        </ResourceDictionary>
+    </views:BaseView.Resources>
+    <RefreshView x:DataType="local:ArticlesPageViewModel" 
+                 Command="{Binding LoadItemsCommand}" 
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <Grid>
+            <controls:EmptyView IsVisible="{Binding HasData, Converter={StaticResource BoolToInversedBoolConverter}}"/>
+            <CollectionView x:Name="ItemsListView"
+                        IsVisible="{Binding ShowMainUI}"
+                        ItemsSource="{Binding Articles}"
+                        SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Article">
+                            <Image Source="{Binding urlToImage}"
+                               HeightRequest="{Binding Path=BindingContext.ImageSize, Source={x:Reference ArticlesPageViewModel}}"
+                               Aspect="AspectFill"/>
+                            <Label Text="{Binding title}" 
+                               LineBreakMode="NoWrap" 
+                               Style="{DynamicResource NormalLabelStyle}" 
+                               FontSize="16" />
+                            <Label Style="{DynamicResource NormalGreyLabelStyle}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="By "/>
+                                        <Span Text="{Binding author}" Style="{DynamicResource BodyStyle}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"/>
+                                <Label Text="{Binding publishedAt, StringFormat='{0:MMMM dd, yyyy}'}" 
+                                   Grid.Column="1"
+                                   Style="{DynamicResource NormalGreyLabelStyle}" />
+                            </Grid>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ArticlesPageViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--No connection view-->
+            <controls:NoConnectionView IsVisible="{Binding Connected, Converter={StaticResource BoolToInversedBoolConverter}}"/>
+            <!--Empty Data view-->
+        </Grid>
+    </RefreshView>
+</views:BaseView>

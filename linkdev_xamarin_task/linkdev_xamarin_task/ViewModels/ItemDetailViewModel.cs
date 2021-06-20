@@ -1,57 +1,27 @@
 ﻿using linkdev_xamarin_task.Models;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace linkdev_xamarin_task.ViewModels
 {
-    [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
-        private string text;
-        private string description;
-        public string Id { get; set; }
 
-        public string Text
+        private Article _article;
+        public Article article
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get { return _article; }
+            set { SetProperty(ref _article, value); }
+        }
+        public ICommand OpenWebCommand => new Command(async () => await Browser.OpenAsync(article.url));
+      
+        public ItemDetailViewModel(Article article)
+        {
+            this.article = article;
         }
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
 
-        public string ItemId
-        {
-            get
-            {
-                return itemId;
-            }
-            set
-            {
-                itemId = value;
-                LoadItemId(value);
-            }
-        }
 
-        public async void LoadItemId(string itemId)
-        {
-            try
-            {
-                var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.Text;
-                Description = item.Description;
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed to Load Item");
-            }
-        }
     }
 }
