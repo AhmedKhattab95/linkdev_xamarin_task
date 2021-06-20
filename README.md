@@ -11,6 +11,7 @@ and preview it in master detail design using xamarin froms
 - Messaging Center
 - DI by <a href="https://docs.simpleinjector.org/en/latest/">SimpleInjector</a>
 - xamarin essentials to check interenet and open url in web
+- <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/navigation/flyoutpage">Xamarin.Forms Shell flyout</a>
 
 <b>Known Issues:</b></br>
 - On Android Api return 403 but worked in UWP </br>
@@ -20,6 +21,11 @@ and preview it in master detail design using xamarin froms
 </br></br>
 <b>Notes:</b></br>
 - Not tested on iOS <br/>
+
+</br></br>
+<b>TODO:</b></br>
+- add screenshots in describtion to show finished
+- generate apk and add it in release section to see result on Android without run locally.
 
 
 
