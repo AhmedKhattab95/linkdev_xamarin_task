@@ -10,10 +10,12 @@ and preview it in master detail design using xamarin froms
 - Repository pattern
 - Messaging Center
 - DI by <a href="https://docs.simpleinjector.org/en/latest/">SimpleInjector</a>
+- xamarin essentials to check interenet and open url in web
 
 <b>Known Issues:</b></br>
 - On Android Api return 403 but worked in UWP </br>
 - Theme not one on all pages </br>
+- not using placeholder for image
 
 </br></br>
 <b>Notes:</b></br>
