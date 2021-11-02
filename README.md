@@ -1,5 +1,6 @@
 # linkdev_xamarin_task
 
+<img src="https://dev.azure.com/ahmedkhtab99/test/_apis/build/status/AhmedKhattab95.linkdev_xamarin_task?branchName=master"></img>
 [![Build Status](https://dev.azure.com/ahmedkhtab99/test/_apis/build/status/AhmedKhattab95.linkdev_xamarin_task?branchName=master)](https://dev.azure.com/ahmedkhtab99/test/_build/latest?definitionId=3&branchName=master)
 
 Task to consume news api https://newsapi.org/ </br>
