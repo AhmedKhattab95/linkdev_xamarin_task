@@ -1,4 +1,7 @@
 # linkdev_xamarin_task
+
+[![Build Status](https://dev.azure.com/ahmedkhtab99/test/_apis/build/status/AhmedKhattab95.linkdev_xamarin_task?branchName=master)](https://dev.azure.com/ahmedkhtab99/test/_build/latest?definitionId=3&branchName=master)
+
 Task to consume news api https://newsapi.org/ </br>
 and preview it in master detail design using xamarin froms 
 <a href="https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.masterdetailpage?view=xamarin-forms">master details</a>
